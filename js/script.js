@@ -1,36 +1,31 @@
 var quotes = [
   {
     quote: "No Grit, No Pearl.",
-    source: "Anonymous",
-    citation: null,
-    year: null
+    source: "Anonymous"
   },
   {
     quote: "You miss 100% of the shots you don't take.",
-    source: "Wayne Gretzky",
-    citation: null,
-    year: null
-  }, {
+    source: "Wayne Gretzky"
+  },
+  {
     quote: "Fall seven times, stand up eight.",
-    source: "Japanese Proverb",
-    citation: null,
-    year: null
-  }, {
-    quote: "Success is not final, failure is not fatal: it is" +
-    " the courage to continue that counts.",
-    source: "Winston Churchill",
-    citation: null,
-    year: null
-  }, {
-    quote: "There are seven days in the week and someday isn&#39t one of them.",
-    source: "Anonymous",
-    citation: null,
-    year: null
-  }, {
-    quote: "The man who views the world at 50 the same as he did at 20 has wasted 30 years of his life.",
-    source: "Muhammad Ali",
-    citation: null,
-    year: null
+    source: "Japanese Proverb"
+  },
+  {
+    quote: "Don’t let the noise of other’s’ opinions drown out your own inner voice.",
+    source: "Steve Jobs",
+    citation: "Stanford University Commencement Speech",
+    year: 2005
+  },
+  {
+    quote: "Done is better than perfect.",
+    source: "Sheryl Sandberg"
+  },
+  {
+    quote: "The only thing we have to fear is fear itself.",
+    source: "Franklin D. Roosevelt",
+    citation: "First Inaugural Address",
+    year: 1933
   }
 ];
 
