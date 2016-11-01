@@ -12,10 +12,8 @@ var quotes = [
     source: "Japanese Proverb"
   },
   {
-    quote: "Don&#39;t let the noise of other&#39;s&#39; opinions drown out your own inner voice.",
-    source: "Steve Jobs",
-    citation: "Stanford University Commencement Speech",
-    year: 2005
+    quote: "I have not failed. I've just found 10,000 ways that won&#39;t work.",
+    source: "Thomas A. Edison"
   },
   {
     quote: "Done is better than perfect.",
@@ -29,8 +27,19 @@ var quotes = [
   }
 ];
 
-var quoteId = 0;
-var quoteIdsUsed = [];
+// CSS Color Names
+// Compiled by @bobspace.
+//
+// A javascript array containing all of the color names listed in the CSS Spec.
+// The full list can be found here: http://www.w3schools.com/cssref/css_colornames.asp
+// Use it as you please, 'cuz you can't, like, own a color, man.
+// I deleted colors that didn't provide sufficient contrast or seemed particularly grating.
+
+var CSS_COLOR_NAMES = ["Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chocolate", "Coral", "CornflowerBlue", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "FireBrick", "ForestGreen", "Fuchsia", "Green", "HotPink", "IndianRed", "Indigo", "Lime", "LimeGreen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "Pink", "Plum", "PowderBlue", "Purple", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SlateBlue", "SlateGray", "SlateGrey", "SpringGreen", "SteelBlue", "Teal", "Thistle", "Tomato", "Turquoise", "Violet"];
+
+var quoteIndex = 0;
+var colorIndex = 0;
+var quotesUsed = [];
 var quote = '';
 
 // const keyword is not supported in IE
@@ -48,32 +57,44 @@ function getRandomIntInclusive(min, max) {
 }
 
 function emptyQuotesArray() {
-  quoteIdsUsed = [];
+  quotesUsed = [];
+  console.log("Emptied queue; Start fresh.")
 }
 
 function allQuotesUsed() {
-  return (quoteIdsUsed.length === NUMBER_OF_QUOTES);
+  return (quotesUsed.length === NUMBER_OF_QUOTES);
 }
 
 function getRandomQuote() {
 
   do {
 
-    quoteId = getRandomIntInclusive(0, 5);
+    quoteIndex = getRandomIntInclusive(0, 5);
 
-  } while (quoteIdsUsed.includes(quoteId));
+  } while (quotesUsed.includes(quoteIndex));
 
-  quoteIdsUsed.push(quoteId);
+  quotesUsed.push(quoteIndex);
+
+  logQuoteToConsole(quoteIndex);
 
   if (allQuotesUsed()) {
     emptyQuotesArray();
   }
-  return quotes[quoteId];
+
+  return quotes[quoteIndex];
+}
+
+function getRandomColor() {
+
+  colorIndex = getRandomIntInclusive(0, CSS_COLOR_NAMES.length - 1);
+  return CSS_COLOR_NAMES[colorIndex];
+}
+
+function logQuoteToConsole(quoteIndex) {
+  console.log(quoteIndex, ': ', quotes[quoteIndex].quote.slice(0, 20), ' Quotes used: ', quotesUsed);
 }
 
 function formatQuote(quote) {
-
-  console.log(typeof quote.citation === "undefined");
 
   var formattedQuote =
     '<p class="quote">' + quote.quote + '</p>' +
@@ -95,13 +116,23 @@ function formatQuote(quote) {
 
 }
 
+function changeBackground() {
+
+  var newColor = getRandomColor();
+  document.getElementById("bgcolor").style.backgroundColor = newColor;
+  console.log('change color ', newColor);
+}
+
 function printQuote() {
 
+
   document.getElementById('quote-box').innerHTML = formatQuote(getRandomQuote());
+  changeBackground();
 
 }
 
 // seed the initial quote
+
 printQuote();
 
 // event listener to respond to "Show another quote" button clicks

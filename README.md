@@ -34,3 +34,29 @@
 </p>
 ```
 
+- [x] printQuote doesn't add a span for a citation if there is no citation property for the quote 
+- [x] printQuote doesn't add a span for the year property for the quote
+- [x] printQuote displays the final HTML string to the page. You can use this JS snippet to accomplish that:
+
+```
+document.getElementById('quote-box').innerHTML
+```
+
+- [x] Add comments to your code
+- [] Check for cross-browser compatibility with at least 3 browsers
+	- [] Browser 1
+	- [] Browser 2
+	- [] Browser 3
+	
+Extra Credit Criteria
+
+- [] Add more properties to the quote object. For example, a tags property could include a list of "tags" like "humor", "business", or "politics" to categorize each quote.
+- [x] When the quote changes, randomly change the background color of the page.
+- [x] Don't display a random quote more than once until ALL quotes from the array have been displayed. 
+- [x] To help reviewers (and yourself) verify that the quotes don’t repeat until they’ve all been displayed, log the quote to the console each time the “Show Another Quote” button is clicked.
+- [] Refresh the quote after a set amount of time. For example, every 30 seconds, make a new quote appear. (You can use the setInterval() or setTimeout() method to do this.
+
+
+### Resources
+[Stop setInterval In JavaScript](http://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript)
+[Color names](http://www.w3schools.com/colors/colors_names.asp)
