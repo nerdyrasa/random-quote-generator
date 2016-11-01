@@ -22,7 +22,7 @@ var quotes = [
     citation: null,
     year: null
   }, {
-    quote: "There are seven days in the week and someday isn’t one of them.",
+    quote: "There are seven days in the week and someday isn&#39t one of them.",
     source: "Anonymous",
     citation: null,
     year: null
@@ -35,18 +35,43 @@ var quotes = [
 ];
 
 var quoteId = 0;
+var quoteIdsUsed = [];
+var quote = '';
+const NUMBER_OF_QUOTES = 6;
+
+// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+// Returns a random integer between min (included) and max (included)
+// Using Math.round() will give you a non-uniform distribution!
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function emptyQuotesArray() {
+  quoteIdsUsed = [];
+}
+
+function allQuotesUsed() {
+  return (quoteIdsUsed.length === NUMBER_OF_QUOTES);
+}
 
 function getRandomQuote() {
-  // Ultimately I'll need to select a random quote object from the quotes array
-  // For now,just cycle through the quotes
 
-  var quote = quotes[quoteId];
-  quoteId++;
-  if (quoteId === 6) {
-    quoteId = 0;
+  do {
+
+    quoteId = getRandomIntInclusive(0, 5);
+
+  } while (quoteIdsUsed.includes(quoteId));
+
+  quoteIdsUsed.push(quoteId);
+
+  if (allQuotesUsed()) {
+    emptyQuotesArray();
   }
-  // Return the randomly selected quote object
-  return quote;
+  return quotes[quoteId];
 }
 
 function formatQuote(stuff) {
@@ -62,18 +87,14 @@ function formatQuote(stuff) {
 }
 
 function printQuote() {
-  // Get a quote
+
   var quote = getRandomQuote();
-
-  // format the
   var formatted = formatQuote(quote);
-
-  // Display the quote
   document.getElementById('quote-box').innerHTML = formatted;
 
 }
 
-
+printQuote();
 
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
