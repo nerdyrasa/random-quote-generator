@@ -79,6 +79,8 @@ function formatQuote(quote) {
     '<p class="quote">' + quote.quote + '</p>' +
     '<p class="source">' + quote.source;
 
+  // http://stackoverflow.com/questions/27509/detecting-an-undefined-object-property
+
   if (typeof quote.citation !== "undefined") {
     formattedQuote += '<span class="citation">' + quote.citation + '</span>';
   }
