@@ -12,7 +12,7 @@ var quotes = [
     source: "Japanese Proverb"
   },
   {
-    quote: "Don’t let the noise of other’s’ opinions drown out your own inner voice.",
+    quote: "Don&#39;t let the noise of other&#39;s&#39; opinions drown out your own inner voice.",
     source: "Steve Jobs",
     citation: "Stanford University Commencement Speech",
     year: 2005
@@ -32,7 +32,9 @@ var quotes = [
 var quoteId = 0;
 var quoteIdsUsed = [];
 var quote = '';
-const NUMBER_OF_QUOTES = 6;
+
+// const keyword is not supported in IE
+var NUMBER_OF_QUOTES = 6;
 
 // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
@@ -69,29 +71,37 @@ function getRandomQuote() {
   return quotes[quoteId];
 }
 
-function formatQuote(stuff) {
+function formatQuote(quote) {
+
+  console.log(typeof quote.citation === "undefined");
 
   var formattedQuote =
-    '<p class="quote">' + stuff.quote + '</p>' +
-    '<p class="source">' + stuff.source +
-      /* <span class="citation"> [citation here] </span>
-       <span class="year"> [year here] </span> */
-    '</p>';
+    '<p class="quote">' + quote.quote + '</p>' +
+    '<p class="source">' + quote.source;
+
+  if (typeof quote.citation !== "undefined") {
+    formattedQuote += '<span class="citation">' + quote.citation + '</span>';
+  }
+
+  if (typeof quote.year !== "undefined") {
+    formattedQuote += '<span class="year">' + quote.year + '</span>';
+  }
+
+  formattedQuote += '</p>';
+
   return formattedQuote;
 
 }
 
 function printQuote() {
 
-  var quote = getRandomQuote();
-  var formatted = formatQuote(quote);
-  document.getElementById('quote-box').innerHTML = formatted;
+  document.getElementById('quote-box').innerHTML = formatQuote(getRandomQuote());
 
 }
 
+// seed the initial quote
 printQuote();
 
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-

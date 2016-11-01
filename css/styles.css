@@ -4,6 +4,11 @@ body {
   color: white;
   font-family: 'Merriweather', serif;
 }
+
+p {
+  padding-left: 20px;
+}
+
 #quote-box {
   position: absolute;
   top: 20%;
