@@ -44,13 +44,10 @@ document.getElementById('quote-box').innerHTML
 
 - [x] Add comments to your code
 - [ ] Check for cross-browser compatibility with at least 3 browsers
-	- [ ] Browser 1
-	- [ ] Browser 2
-	- [ ] Browser 3
 	
 Extra Credit Criteria
 
-- [ ] Add more properties to the quote object. For example, a tags property could include a list of "tags" like "humor", "business", or "politics" to categorize each quote.
+- [x] Add more properties to the quote object. For example, a tags property could include a list of "tags" like "humor", "business", or "politics" to categorize each quote.
 - [x] When the quote changes, randomly change the background color of the page.
 - [x] Don't display a random quote more than once until ALL quotes from the array have been displayed. 
 - [x] To help reviewers (and yourself) verify that the quotes don’t repeat until they’ve all been displayed, log the quote to the console each time the “Show Another Quote” button is clicked.

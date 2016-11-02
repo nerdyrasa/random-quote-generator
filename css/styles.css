@@ -66,6 +66,12 @@ p {
   font-style: normal;
 }
 
+.tags {
+  font-weight: bold;
+  font-size: 0.80rem;
+
+}
+
 #loadQuote {
   position: fixed;
   width: 12em;
