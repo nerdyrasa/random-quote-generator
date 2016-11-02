@@ -16,6 +16,11 @@ p {
   width: 80%;
   line-height: .5;
 }
+
+#button-box {
+  display: block;
+}
+
 .quote {
   font-size: 3rem;
   font-weight: 400;
