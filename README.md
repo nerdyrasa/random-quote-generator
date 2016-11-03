@@ -43,7 +43,7 @@ document.getElementById('quote-box').innerHTML
 ```
 
 - [x] Add comments to your code
-- [ ] Check for cross-browser compatibility with at least 3 browsers
+- [x] Check for cross-browser compatibility with at least 3 browsers
 	
 Extra Credit Criteria
 
