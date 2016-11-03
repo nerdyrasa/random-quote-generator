@@ -29,7 +29,7 @@ var quotes = [
     source: "Franklin D. Roosevelt",
     citation: "First Inaugural Address",
     year: 1933,
-    tags: ["Hope", "Politics"]
+    tags: ["Courage", "Politics"]
   }
 ];
 
@@ -44,9 +44,7 @@ var quotes = [
 var CSS_COLOR_NAMES = ["Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chocolate", "Coral", "CornflowerBlue", "Crimson", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "FireBrick", "ForestGreen", "Fuchsia", "Green", "HotPink", "IndianRed", "Indigo", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "Pink", "Plum", "PowderBlue", "Purple", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SlateBlue", "SlateGray", "SlateGrey", "SpringGreen", "SteelBlue", "Teal", "Thistle", "Tomato", "Turquoise", "Violet"];
 
 var quoteIndex = 0;
-var colorIndex = 0;
 var quotesUsed = [];
-var quote = '';
 var intervalID;
 
 // const keyword is not supported in IE
@@ -59,22 +57,31 @@ var CHANGE_INTERVAL = 20000;
 // Using Math.round() will give you a non-uniform distribution!
 
 function getRandomIntInclusive(min, max) {
+  "use strict";
+
+  // http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html
+  // The parameters passed in, min and max, are scoped to the function, so
+  // that is why they aren't declared below as var min and var max.
+
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function emptyQuotesArray() {
+  "use strict";
   quotesUsed = [];
-  console.log("Emptied queue; Start fresh.")
+
+  console.log("Emptied queue; Start fresh.");
 }
 
 function allQuotesUsed() {
+  "use strict";
   return (quotesUsed.length === NUMBER_OF_QUOTES);
 }
 
 function getRandomQuote() {
-
+  "use strict";
   do {
 
     quoteIndex = getRandomIntInclusive(0, 5);
@@ -93,17 +100,17 @@ function getRandomQuote() {
 }
 
 function getRandomColor() {
-
-  colorIndex = getRandomIntInclusive(0, CSS_COLOR_NAMES.length - 1);
-  return CSS_COLOR_NAMES[colorIndex];
+  "use strict";
+  return CSS_COLOR_NAMES[getRandomIntInclusive(0, CSS_COLOR_NAMES.length - 1)];
 }
 
 function logQuoteToConsole(quoteIndex) {
+  "use strict";
   console.log(quoteIndex, ': ', quotes[quoteIndex].quote.slice(0, 20));
 }
 
 function formatQuote(quote) {
-
+  "use strict";
   var formattedQuote =
     '<p class="quote">' + quote.quote + '</p>' +
     '<p class="source">' + quote.source;
@@ -126,9 +133,8 @@ function formatQuote(quote) {
 }
 
 function changeBackground() {
-
-  var newColor = getRandomColor();
-  document.getElementById("bgcolor").style.backgroundColor = newColor;
+  "use strict";
+  document.getElementById("bgcolor").style.backgroundColor = getRandomColor();
 
 }
 
@@ -136,7 +142,7 @@ function changeBackground() {
 // be up. It seems better to reset the interval with each button click.
 
 function resetTimer() {
-
+  "use strict";
   if (intervalID) {
     window.clearInterval(intervalID);
     intervalID = setInterval(printQuote, CHANGE_INTERVAL);
@@ -145,7 +151,7 @@ function resetTimer() {
 }
 
 function printQuote() {
-
+  "use strict";
   resetTimer();
   document.getElementById('quote-box').innerHTML = formatQuote(getRandomQuote());
   changeBackground();
