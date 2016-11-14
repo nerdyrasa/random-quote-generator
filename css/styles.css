@@ -4,20 +4,32 @@ body {
   font-family: 'Merriweather', serif;
 }
 
+.container {
+  position: relative;
+}
+
 p {
   padding-left: 20px;
 }
 
+/*
+An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).
+The .container did not originally have a position property, so I needed to add that to make it behave "better"
+*/
+
 #quote-box {
   position: absolute;
-  top: 20%;
+  /*top: 20%;*/
+  margin-top: 100px;
   left: 10%;
-  right: 10%;
-  width: 80%;
+  right: 30%;
+  /* create a media query for smaller screens to set this width  ??? */
+  width: 70%;
   line-height: .5;
 }
 
 #button-box {
+  position: relative;
   display: block;
 }
 
@@ -103,4 +115,9 @@ p {
   .source {
     font-size: 1rem;
   }
+
+  #quote-box {
+    margin-top: 50px;
+  }
+
 }
