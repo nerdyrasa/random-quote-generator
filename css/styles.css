@@ -105,6 +105,21 @@ The .container did not originally have a position property, so I needed to add t
   outline: none;
 }
 
+@media (max-width: 300px) {
+  .quote {
+    font-size: 1rem;
+  }
+
+  .quote:before, .quote:after {
+    font-size: 1.5rem;
+  }
+
+  .source {
+    font-size: 0.75rem;
+  }
+
+}
+
 @media (max-width: 420px) {
   .quote {
     font-size: 2.5rem;
@@ -118,6 +133,10 @@ The .container did not originally have a position property, so I needed to add t
 
   #quote-box {
     margin-top: 50px;
+  }
+
+  #loadQuote {
+    bottom: 5%;
   }
 
 }
