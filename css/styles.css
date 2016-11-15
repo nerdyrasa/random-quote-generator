@@ -21,7 +21,7 @@ The .container did not originally have a position property, so I needed to add t
   position: absolute;
   /*top: 20%;*/
   margin-top: 100px;
-  left: 10%;
+  left: 20%;
   right: 30%;
   /* create a media query for smaller screens to set this width  ??? */
   width: 70%;
@@ -120,7 +120,7 @@ The .container did not originally have a position property, so I needed to add t
 
 }
 
-@media (max-width: 420px) {
+@media (max-width: 442px) {
   .quote {
     font-size: 2.5rem;
   }
@@ -138,5 +138,6 @@ The .container did not originally have a position property, so I needed to add t
   #loadQuote {
     bottom: 5%;
   }
-
 }
+
+/* Really need to add a media query for landscape mode */
