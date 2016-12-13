@@ -81,6 +81,7 @@ The .container did not originally have a position property, so I needed to add t
 .tags {
   font-weight: bold;
   font-size: 0.80rem;
+  text-transform: uppercase;
 
 }
 
@@ -140,4 +141,3 @@ The .container did not originally have a position property, so I needed to add t
   }
 }
 
-/* Really need to add a media query for landscape mode */

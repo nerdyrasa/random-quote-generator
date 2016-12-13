@@ -58,3 +58,30 @@ Extra Credit Criteria
 - [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval)
 - [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout)
 - [Color names](http://www.w3schools.com/colors/colors_names.asp)
+
+### Issues
+
+Review the css with mobile first in mind.
+
+Define media queries in terms of min-width
+
+```
+@media (min-width: 769px) {
+	.container {
+		width: 70%;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+}
+```
+
+For the random quotes website, I'll need to have an
+even smaller min-width initially.
+
+#### One Rule for All
+
+```
+* {
+  box-sizing: border-box;
+}
+```
