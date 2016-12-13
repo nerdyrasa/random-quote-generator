@@ -1,13 +1,12 @@
-## Treehouse Technical Degree Project 1
+## Random Quote Generator
 
-####Tech:
 - JavaScript
 - HTML
 - CSS
-
-####Tools:
 - WebStorm
 - GitHub 
+
+![Random Quote Generator](https://cloud.githubusercontent.com/assets/10632591/21154465/0ff3d526-c134-11e6-8022-e8c3d0b33fdf.png)
 
 ####Requirements:
 - [x] Create an array of JavaScript objects to hold the data for your quotes. 
