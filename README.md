@@ -84,3 +84,9 @@ even smaller min-width initially.
   box-sizing: border-box;
 }
 ```
+
+#### Making the website responsive
+
+Currently, the website is not responsive. It is just ug-ug-ugly on smaller screen sizes. Try this website to solve this conundrum:
+
+- [How to Center in CSS](http://howtocenterincss.com/)
